@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import NavLinks from './navigation-link';
 import PropTypes from 'prop-types';
 import { createHashHistory } from 'history';
-import FooterLinks from '../footer/footer';
-import footerLinks from '../../data-objects/footer-links.json';
 
 const navmenu = [{ name: 'Create Rules', navigate: './create-ruleset', iconClass: "icon fa fa-plus-square-o", linkClass: 'navmenu'},
                  { name: 'Upload Rules', navigate: './home', iconClass: "icon fa fa-cloud-upload", linkClass: 'navmenu' } ];
@@ -45,9 +43,6 @@ class NavigationPanel extends Component {
                 {!closedState && <div className="links-section">
                     <div>
                         <NavLinks links={rulesetLink} onConfirm={this.handleNavLink} activeIndex={this.props.activeIndex}/>
-                    </div>
-                    <div className="footer-container sidenav">
-                        <FooterLinks links={footerLinks} />
                     </div>
                  </div>
                 }
