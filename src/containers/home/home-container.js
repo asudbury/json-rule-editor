@@ -93,16 +93,6 @@ class HomeContainer extends Component {
     });
   }
 
-  // this method is not required. its to select files from local disk.
-  /* chooseFile() {
-    const file = document.getElementById("uploadFile");
-    if (file && file.files) {
-      for (let i = 0; i < file.files.length; i++) {
-        readFile(file.files[i], this.printFile);
-      }
-    }
-   } */
-
   chooseDirectory(e) {
     const files = e.target.files;
     if (files) {
@@ -174,8 +164,9 @@ class HomeContainer extends Component {
                       webkitdirectory="true"
                       multiple
                     />
-                  </label>{" "}
-                  or Drop Files
+                  </label>
+                  <br />
+                  or Drop Files here
                 </div>
                 {this.state.files.length > 0 && (
                   <div className="file-drop-msg">{`${this.state.files.length} json files are dropped!`}</div>

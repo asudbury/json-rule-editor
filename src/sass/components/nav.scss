@@ -1,20 +1,20 @@
 .nav-container {
-    background-color: $title-bg-clr;
-    font-family: $title-font-family;
-    height: 100%;
-    left: 0;
-    margin-top: -70px;
-    overflow-y: auto;
-    position: fixed;
-    padding: 0 10px 25px;
+  background-color: $title-bg-clr;
+  font-family: $title-font-family;
+  height: 100%;
+  left: 0;
+  margin-top: -70px;
+  overflow-y: auto;
+  position: fixed;
+  padding: 0 10px 25px;
 
-    &.closed {
-      width: 40px;
-    }
+  &.closed {
+    width: 40px;
+  }
 
-    &.open {
-      width: $sideNavWidth;
-    }
+  &.open {
+    width: $sideNavWidth;
+  }
 }
 
 .menu-bar {
@@ -28,13 +28,12 @@
   }
 }
 
-
 .links-section {
-    display: flex;
-    height: 90vh;
-    flex-direction: column;
-    justify-content: space-between;
-} 
+  display: flex;
+  height: 30vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .link-container {
   list-style-type: none;
@@ -63,9 +62,9 @@
 
     a {
       color: $btn-color;
-  
+
       .rules-icon {
-        background: url('../../assets/icons/rules.svg') no-repeat;
+        background: url("../../assets/icons/rules.svg") no-repeat;
         background-size: contain;
         margin: 0 20px 0 0;
         padding: 0;
@@ -73,19 +72,18 @@
         position: absolute;
         width: 100%;
       }
-  
+
       span.text {
         margin-left: 75px;
       }
-  
     }
 
     a::after {
-      content: '>';
+      content: ">";
       float: right;
       transition: transform 0.5s;
     }
-  
+
     a.active::after {
       transform: rotate(90deg);
       transition: transform 0.5s;
@@ -132,7 +130,7 @@
         padding: 10px;
       }
 
-      &.active a{
+      &.active a {
         color: $link-active-color;
       }
     }
@@ -144,7 +142,7 @@
     }
 
     a::after {
-      content: '';
+      content: "";
     }
   }
 }

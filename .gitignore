@@ -2,3 +2,4 @@ node_modules/
 dist/
 json-rule-editor.code-workspace
 .vscode/settings.json
+.vscode/launch.json
