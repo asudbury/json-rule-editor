@@ -2,32 +2,27 @@ import React, { Component } from "react";
 import NavLinks from "./navigation-link";
 import PropTypes from "prop-types";
 import { createHashHistory } from "history";
+import NavigationDrawer from "./NavigationDrawer";
+import backGroundSvg from "../../../assets/background.svg";
 
-const navmenu = [
-  {
-    name: "Create Ruleset",
-    navigate: "./create-ruleset",
-    iconClass: "icon fa fa-plus-square-o",
-    linkClass: "navmenu",
-  },
-  {
-    name: "Upload Ruleset",
-    navigate: "./home",
-    iconClass: "icon fa fa-cloud-upload",
-    linkClass: "navmenu",
-  },
-];
 class NavigationPanel extends Component {
   constructor(props) {
     super(props);
     this.state = { links: [] };
     this.handleNavLink = this.handleNavLink.bind(this);
     this.handleNavBtn = this.handleNavBtn.bind(this);
+    this.handleHome = this.handleHome.bind(this);
+    this.handleDocumentation = this.handleDocumentation.bind(this);
   }
 
   handleNavBtn() {
     const history = createHashHistory();
     history.push("./create-ruleset");
+  }
+
+  handleHome() {
+    const history = createHashHistory();
+    history.push("./home");
   }
 
   handleNavLink(name) {
@@ -36,13 +31,16 @@ class NavigationPanel extends Component {
     history.push("./ruleset");
   }
 
+  handleDocumentation() {
+    window.open("https://asudbury.github.io/json-rule-editor-docs/", "_blank");
+  }
+
   render() {
-    const { closedState, loggedIn } = this.props;
     let rulesetLink =
       this.props.rulenames.length > 0
         ? [
             {
-              name: "Ruleset",
+              name: "Rulesets",
               sublinks: this.props.rulenames,
               iconClass: "rules-icon",
               linkClass: "link-heading",
@@ -50,24 +48,28 @@ class NavigationPanel extends Component {
           ]
         : [];
 
-    rulesetLink = rulesetLink.concat(navmenu);
-
-    let sideNav = loggedIn && closedState ? "open" : "closed";
-
     return (
-      <div className="nav-container open">
-        <div className="menu-bar">
-          <a
-            href=""
-            onClick={(e) => {
-              e.preventDefault();
-              this.props.updateState(sideNav);
-            }}
-          >
-            {" "}
-            <span className="close-icon fa fa-reorder"></span>
-          </a>
-        </div>
+      <div
+        className="nav-container open"
+        style={{
+          backgroundImage: `url(${backGroundSvg})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <NavigationDrawer
+          onCreateRuleSet={this.handleNavBtn}
+          onUploadRuleSet={this.handleHome}
+          onShowDocumentation={this.handleDocumentation}
+          currentRuleSets={rulesetLink}
+          style={{
+            backgroundImage: `url(${backGroundSvg})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        />
         <div className="links-section">
           <div>
             <NavLinks

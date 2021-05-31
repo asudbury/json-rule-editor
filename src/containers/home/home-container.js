@@ -13,18 +13,7 @@ import {
   RULE_UPLOAD_ERROR,
 } from "../../constants/messages";
 
-function readFile(file, cb) {
-  // eslint-disable-next-line no-undef
-  var reader = new FileReader();
-  reader.onload = () => {
-    try {
-      cb(JSON.parse(reader.result), file.name);
-    } catch (e) {
-      cb(undefined, undefined, e.message);
-    }
-  };
-  return reader.readAsText(file);
-}
+import { chooseDirectory, uploadDirectory } from "../../utils/FileUtils";
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -41,7 +30,7 @@ class HomeContainer extends Component {
     this.allowDrop = this.allowDrop.bind(this);
     this.printFile = this.printFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
-    this.chooseDirectory = this.chooseDirectory.bind(this);
+    this.chooseDirectory = chooseDirectory.bind(this);
   }
 
   allowDrop(e) {
@@ -73,37 +62,6 @@ class HomeContainer extends Component {
     }
   }
 
-  uploadFile(items, index) {
-    const file = items[index].getAsFile();
-    readFile(file, this.printFile);
-  }
-
-  uploadDirectory(item) {
-    var dirReader = item.createReader();
-    const print = this.printFile;
-    dirReader.readEntries(function (entries) {
-      for (let j = 0; j < entries.length; j++) {
-        let subItem = entries[j];
-        if (subItem.isFile) {
-          subItem.file((file) => {
-            readFile(file, print);
-          });
-        }
-      }
-    });
-  }
-
-  chooseDirectory(e) {
-    const files = e.target.files;
-    if (files) {
-      for (let i = 0; i < files.length; i++) {
-        if (files[i].type === "application/json") {
-          readFile(files[i], this.printFile);
-        }
-      }
-    }
-  }
-
   drop(e) {
     e.preventDefault();
     const items = e.dataTransfer.items;
@@ -113,7 +71,7 @@ class HomeContainer extends Component {
         if (item.isFile) {
           this.uploadFile(items, i);
         } else if (item.isDirectory) {
-          this.uploadDirectory(item);
+          uploadDirectory(item);
         }
       }
     }

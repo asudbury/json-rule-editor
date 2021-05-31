@@ -49,7 +49,7 @@ const config = {
   },
 };
 
-const App = () => (
+const AppNew = () => (
   <Root config={config} style={{ minHeight: "100vh" }}>
     <CssBaseline />
     <Header
@@ -58,7 +58,7 @@ const App = () => (
         active: <ChevronLeftIcon />,
       }}
     >
-      {/* header goes here */}
+      <div>Header</div>
     </Header>
     <Nav
       collapsedIcon={{
@@ -66,16 +66,16 @@ const App = () => (
         active: <ChevronRightIcon />,
       }}
       header={
+        <div>Header</div>
         // you can provide fixed header inside nav
         // change null to some react element
-        (ctx) => null
       }
     >
       {/* nav goes here */}
     </Nav>
-    <Content>{/* content goes here */}</Content>
-    <Footer>{/* footer goes here */}</Footer>
+    <Content>{<div>Content</div>}</Content>
+    <Footer>{<div>Footer</div>}</Footer>
   </Root>
 );
 
-export default App;
+export default AppNew;
