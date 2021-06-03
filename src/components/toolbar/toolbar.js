@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SweetAlert from "react-bootstrap-sweetalert";
-import Search from "../search/search";
 
 class ToolBar extends Component {
   constructor(props) {
