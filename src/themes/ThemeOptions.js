@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const themeOptions = {
   palette: {
     type: "light",

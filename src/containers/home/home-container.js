@@ -3,17 +3,19 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { login } from "../../actions/app";
 import { uploadRuleset } from "../../actions/ruleset";
-import { TitlePanel } from "../../components/panel/panel";
-import Button from "../../components/button/button";
 import { createHashHistory } from "history";
 import { includes } from "lodash/collection";
-import Notification from "../../components/notification/notification";
 import {
   RULE_AVAILABLE_UPLOAD,
   RULE_UPLOAD_ERROR,
 } from "../../constants/messages";
 
 import { chooseDirectory, uploadDirectory } from "../../utils/FileUtils";
+import MyButton from "../../components/core/MyButton";
+import Typography from "@material-ui/core/Typography";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Grid from "@material-ui/core/Grid";
+import MyAlert from "../../components/core/MyAlert";
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -25,6 +27,7 @@ class HomeContainer extends Component {
       uploadError: false,
       fileExist: false,
       message: {},
+      noFilesChosen: false,
     };
     this.drop = this.drop.bind(this);
     this.allowDrop = this.allowDrop.bind(this);
@@ -38,6 +41,9 @@ class HomeContainer extends Component {
   }
 
   printFile(file, name, error) {
+    this.setState({
+      noFilesChosen: false,
+    });
     if (error) {
       this.setState({
         uploadError: true,
@@ -81,6 +87,10 @@ class HomeContainer extends Component {
     if (this.state.ruleset.length > 0) {
       this.props.uploadRuleset(this.state.ruleset);
       this.navigate("./ruleset");
+    } else {
+      this.setState({
+        noFilesChosen: true,
+      });
     }
   }
 
@@ -92,63 +102,59 @@ class HomeContainer extends Component {
 
   render() {
     const { fileExist, uploadError, message } = this.state;
-    const title = this.props.loggedIn
-      ? "Upload Rules"
-      : "Create / Upload Rules";
     return (
       <div className="home-container">
         <div className="single-panel-container">
-          {(fileExist || uploadError) && (
-            <Notification
-              body={message.body}
-              heading={message.heading}
-              type={message.type}
-            />
-          )}
-          <TitlePanel title={title} titleClass="fa fa-cloud-upload">
-            <div className="upload-panel">
-              <div
-                className="drop-section"
-                onDrop={this.drop}
-                onDragOver={this.allowDrop}
-              >
-                <div>
-                  <label htmlFor="uploadFile">
-                    Choose Ruleset directory
-                    <input
-                      id="uploadFile"
-                      type="file"
-                      onChange={this.chooseDirectory}
-                      webkitdirectory="true"
-                      multiple
-                    />
-                  </label>
-                  <br />
-                  or Drop Files here
+          <div className="title-panel">
+            <Grid container spacing={3}>
+              <Grid item xs={1}>
+                <CloudUploadIcon color="primary" />
+              </Grid>
+              <Grid item xs={11}>
+                <Typography gutterBottom>Upload Ruleset</Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <div className="upload-panel">
+                  <div
+                    className="drop-section"
+                    onDrop={this.drop}
+                    onDragOver={this.allowDrop}
+                  >
+                    <div>
+                      <label htmlFor="uploadFile">
+                        Choose Ruleset directory
+                        <input
+                          id="uploadFile"
+                          type="file"
+                          onChange={this.chooseDirectory}
+                          webkitdirectory="true"
+                          multiple
+                        />
+                      </label>
+                      <br />
+                      or Drop Files here
+                    </div>
+                    {this.state.files.length > 0 && (
+                      <div className="file-drop-msg">{`${this.state.files.length} json files are dropped!`}</div>
+                    )}
+                  </div>
                 </div>
-                {this.state.files.length > 0 && (
-                  <div className="file-drop-msg">{`${this.state.files.length} json files are dropped!`}</div>
-                )}
-              </div>
-            </div>
-            <div className="btn-group">
-              <Button
-                label={"Upload"}
-                onConfirm={this.handleUpload}
-                classname="primary-btn"
-                type="button"
-              />
-              {!this.props.loggedIn && (
-                <Button
-                  label={"Create"}
-                  onConfirm={() => this.navigate("./create-ruleset")}
-                  classname="primary-btn"
-                  type="button"
-                  disabled={this.state.files.length > 0}
-                />
+              </Grid>
+              <Grid item xs={12}>
+                <MyButton content="Upload" onClick={this.handleUpload} />
+              </Grid>
+              {(fileExist || uploadError) && (
+                <Grid item xs={12}>
+                  <MyAlert type={message.type} message={message.heading} />
+                </Grid>
               )}
-            </div>
-          </TitlePanel>
+              {this.state.noFilesChosen && (
+                <Grid item xs={12}>
+                  <MyAlert type="error" message="Please choose files" />
+                </Grid>
+              )}
+            </Grid>
+          </div>
         </div>
       </div>
     );

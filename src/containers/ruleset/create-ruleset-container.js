@@ -5,10 +5,9 @@ import { includes } from "lodash/collection";
 import { createHashHistory } from "history";
 import { addRuleset } from "../../actions/ruleset";
 import { RULE_AVAILABLE_CREATE } from "../../constants/messages";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import MyButton from "../../components/core/MyButton";
 import MyAlert from "../../components/core/MyAlert";
@@ -44,23 +43,31 @@ class CreateRulesetContainer extends Component {
       <div className="home-container">
         <div className="single-panel-container">
           <div className="title-panel">
-            <Card style={{ border: "none", boxShadow: "none" }}>
-              <CardContent>
+            <Grid container spacing={3}>
+              <Grid item xs={1}>
+                <AddCircleIcon color="primary" />
+              </Grid>
+              <Grid item xs={11}>
                 <Typography gutterBottom>Create Ruleset</Typography>
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
+                  variant="outlined"
                   label="Ruleset Name"
                   value={this.state.name}
                   error={this.state.error.name}
                   onChange={this.onChangeName}
                 />
-                {fileExist && (
+              </Grid>
+              {fileExist && (
+                <Grid item xs={12}>
                   <MyAlert type={message.type} message={message.heading} />
-                )}
-              </CardContent>
-              <CardActions>
+                </Grid>
+              )}
+              <Grid item xs={12}>
                 <MyButton content="Create" onClick={this.handleAdd} />
-              </CardActions>
-            </Card>
+              </Grid>
+            </Grid>
           </div>
         </div>
       </div>
