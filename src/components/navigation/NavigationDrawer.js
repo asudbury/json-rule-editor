@@ -14,6 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
+  text: {
+    fontSize: "0.6rem",
+  },
 }));
 
 export default function NavigationDrawer(props) {
@@ -28,7 +31,9 @@ export default function NavigationDrawer(props) {
             <AddCircleIcon color="secondary" />
           </ListItemIcon>
           <ListItemText>
-            <Typography color="secondary">Create Ruleset</Typography>
+            <Typography color="secondary" className={classes.text}>
+              Create Ruleset
+            </Typography>
           </ListItemText>
         </ListItem>
         <ListItem
@@ -41,7 +46,9 @@ export default function NavigationDrawer(props) {
             <CloudUploadIcon color="secondary" />
           </ListItemIcon>
           <ListItemText>
-            <Typography color="secondary">Upload Ruleset</Typography>
+            <Typography color="secondary" className={classes.text}>
+              Upload Ruleset
+            </Typography>
           </ListItemText>
         </ListItem>
         <ListItem
@@ -54,7 +61,9 @@ export default function NavigationDrawer(props) {
             <HelpOutlineIcon color="secondary" />
           </ListItemIcon>
           <ListItemText>
-            <Typography color="secondary">Documentation</Typography>
+            <Typography color="secondary" className={classes.text}>
+              Documentation
+            </Typography>
           </ListItemText>
         </ListItem>
       </List>
