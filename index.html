@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P2QV3LZH5Y"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-P2QV3LZH5Y");
+    </script>
     <title>Json Rule Editor</title>
-<link rel="shortcut icon" href="rule.ico"><link href="main.css" rel="stylesheet"></head>
-<body>
-    <div id="root">
-    </div>
-<script type="text/javascript" src="main.bundle.js"></script></body>
+  <link rel="shortcut icon" href="rule.ico"><link href="main.css" rel="stylesheet"></head>
+  <body>
+    <div id="root"></div>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
 </html>
