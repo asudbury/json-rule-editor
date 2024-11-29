@@ -4115,15 +4115,15 @@ json-parse-even-better-errors@^2.3.1:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
-json-rules-engine@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/json-rules-engine/-/json-rules-engine-7.1.0.tgz#a78ed505db3a3ad77953b65bdd11abbd13751863"
-  integrity sha512-VlKr16tjuZ+k7XXo8vJGTvtxzDGysPoSkodLo2+RHBYjJTgxSS9UlAsuIMQ13kXy+VBeX1UEcKHa8tvlr0OgJw==
+json-rules-engine@7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/json-rules-engine/-/json-rules-engine-7.2.1.tgz#c72a189684c9c40c74b683eba30a1557236b57b2"
+  integrity sha512-WcAlEsFbUwnu2K++50QMpnujIn4icEBNZIMydqA6CbwE/0Dtjsq6BSEKiQlQlXirLaCXGqvXFQPCIkAWJhBZCg==
   dependencies:
     clone "^2.1.2"
     eventemitter2 "^6.4.4"
     hash-it "^6.0.0"
-    jsonpath-plus "^10.1.0"
+    jsonpath-plus "^10.2.0"
 
 json-schema-traverse@^0.4.1:
   version "0.4.1"
@@ -4152,7 +4152,7 @@ json5@^2.1.2, json5@^2.2.3:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
-jsonpath-plus@^10.1.0:
+jsonpath-plus@^10.2.0:
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-10.2.0.tgz#84d680544d9868579cc7c8f59bbe153a5aad54c4"
   integrity sha512-T9V+8iNYKFL2n2rF+w02LBOT2JjDnTjioaNFrxRy0Bv1y/hNsqR/EBK7Ojy2ythRHwmz2cRIls+9JitQGZC/sw==
