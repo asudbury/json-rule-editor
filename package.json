@@ -35,7 +35,7 @@
     "mini-css-extract-plugin": "2.9.2",
     "postcss-loader": "3.0.0",
     "react": "16.14.0",
-    "react-bootstrap-sweetalert": "5.1.9",
+    "react-bootstrap-sweetalert": "5.2.0",
     "react-d3-tree": "3.6.2",
     "react-dom": "16.14.0",
     "react-notifications": "1.7.4",
