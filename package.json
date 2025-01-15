@@ -57,7 +57,7 @@
     "@hot-loader/react-dom": "16.14.0",
     "babel-eslint": "10.1.0",
     "eslint": "9.18.0",
-    "eslint-plugin-react": "7.37.3",
+    "eslint-plugin-react": "7.37.4",
     "husky": "9.1.7",
     "node-sass": "^9.0.0",
     "react-hot-loader": "4.12.20",
