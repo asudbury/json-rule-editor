@@ -1212,11 +1212,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/d3-hierarchy@^1.1.8":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@types/d3-hierarchy/-/d3-hierarchy-1.1.11.tgz#c3bd70d025621f73cb3319e97e08ae4c9051c791"
-  integrity sha512-lnQiU7jV+Gyk9oQYk0GGYccuexmQPTp08E0+4BidgFdiJivjEvf+esPSdZqCZ2C7UwTWejWpqetVaU8A+eX3FA==
-
 "@types/eslint-scope@^3.7.7":
   version "3.7.7"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.7.tgz#3108bd5f18b0cdb277c867b3dd449c9ed7079ac5"
@@ -5535,13 +5530,12 @@ react-bootstrap-sweetalert@5.2.0:
   resolved "https://registry.yarnpkg.com/react-bootstrap-sweetalert/-/react-bootstrap-sweetalert-5.2.0.tgz#a58bc9fa863eaf518a78b6d0716a25f32182d570"
   integrity sha512-7eaKHgDcYfoRUxiYPZuHjygeLa3yDycGWB+Xwr+PWo6h0HDixwfgGXqWBmDYXI4ZQ453BcY77iBWBZhRbnH/6g==
 
-react-d3-tree@3.6.2:
-  version "3.6.2"
-  resolved "https://registry.yarnpkg.com/react-d3-tree/-/react-d3-tree-3.6.2.tgz#aa3ec911a4ee6d485142f6b033965805901771b8"
-  integrity sha512-1ExQlmEnv5iOw9XfZ3EcESDjzGXVKPAmyDJTJbvVfiwkplZtP7CcNEY0tKZf4XSW0FzYJf4aFXprGJen+95yuw==
+react-d3-tree@3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/react-d3-tree/-/react-d3-tree-3.6.3.tgz#b8b800d0d647e3cd2d39bf699762e0c926341bc0"
+  integrity sha512-e6aaGbYsHADwoaqwFPL5/m4dY5DVbf1ViZQOPsdXvU+Tx7vltAtEixr621zEqsBHoNL92bylgEyACsO9UzJ1Kg==
   dependencies:
     "@bkrem/react-transition-group" "^1.3.3"
-    "@types/d3-hierarchy" "^1.1.8"
     clone "^2.1.1"
     d3-hierarchy "^1.1.9"
     d3-selection "^3.0.0"
